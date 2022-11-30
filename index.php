@@ -40,12 +40,17 @@
     <div class="container-fluid">
         <div class="row d-flex justify-content-between">
             <div class="col-12 col-sm-12 col-md-6 logo-login">
-                <div class="card p-4 col-sm-12 col-md-12 col-lg-10 col-xl-10 border-0">
+                <div class="logo d-flex ms-5">
+                    <img src="assets/img/konecta.png" alt="" style="height: 70px; width: 100px;" class="me-5">
+                    <h1 class="mt-2">Cafeteria Konecta</h1>
+                </div>
+                <hr>
+                <div class="card col-sm-12 col-md-12 col-lg-10 col-xl-10 border-0 img-login">
                     <img class="text-primary" src="assets/img/coffe.jpg" alt="">
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 me-5 bg-primary">
-                <div class="card login p-0 mt-5 bg-white text-dark">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 bg-primary column_form_login">
+                <div class="card login p-3 bg-white text-dark mx-5">
                     <div class="card-body text-muted pt-3">
                         <div class="form-row py-2 ">
                             <div class="form-group col-12 mb-4">
@@ -61,8 +66,8 @@
                                 </div>
                             </div>
                             <div class="px-0 d-grid pb-0 mb-0">
-                                <button type="button" class="btn btn-block btn-lg btn-outline-primary inicio" id="btn_ingresar">Iniciar sesión</button>
-                                <!-- <button class="btn btn-block btn-lg btn-outline-primary inicio" onclick="window.location = 'administracion/view/dashboard.html'" id="btn-ingresar">Iniciar sesión</button> -->
+                                <!-- <button type="button" class="btn btn-block btn-lg btn-outline-primary inicio" id="btn_ingresar">Iniciar sesión</button> -->
+                                <button class="btn btn-block btn-lg btn-outline-primary inicio" onclick="window.location = 'admin/view/dashboard.php'" id="btn-ingresar">Iniciar sesión</button>
                             </div>
                         </div>
                     </div>
