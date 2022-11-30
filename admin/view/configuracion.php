@@ -1,7 +1,7 @@
     <?php
-    require '../Models/ModelCategorias.php';
+    require '../Model/ModelCategorias.php';
 
-    $categorias = new Categorias();
+    $categorias = new Administracion();
 
     ?>
     <!DOCTYPE html>
