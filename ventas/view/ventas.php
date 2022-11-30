@@ -1,3 +1,11 @@
+<?php
+require '../../inventario/Model/ModelInventario.php';
+
+$inventario = new Inventario();
+
+$listarProductos = $inventario->showInventarioByAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +35,11 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+
+    <script>
+        <?php echo "const productos=" . $listarProductos . ";\n"; ?>
+    </script>
+
     <title>Ventas</title>
 </head>
 
@@ -112,14 +125,6 @@
                                         <label class="col-6" for="total"><b>Total a pagar</b></label>
                                         <input type="text" class="form-control" id="total" placeholder="Total a pagar" />
                                     </div>
-                                    <div class="col-12 mb-2 d-flex justify-content-between">
-                                        <label class="col-6" for="iva"><b>Iva</b></label>
-                                        <input type="text" class="form-control" id="iva" placeholder="Valor iva" />
-                                    </div>
-                                    <div class="col-12 mb-2 d-flex justify-content-between">
-                                        <label class="col-6" for="neto"><b>Neto a pagar</b></label>
-                                        <input type="text" class="form-control" id="neto" placeholder="Neto" />
-                                    </div>
                                     <div class="col-12 mb-2">
                                         <div class="row">
                                             <div class="d-grid text-align-center col-6">
@@ -145,7 +150,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="../../assets/js/hamburgerMain.js"></script>
     <script src="../../assets/js/lateralMenu.js"></script>
-    <script src="../app//script.js"></script>
+    <script src="../../logOut.js"></script>
+    <script src="../app/script.js"></script>
 </body>
 
 </html>

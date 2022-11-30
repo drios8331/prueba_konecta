@@ -111,6 +111,7 @@
         <script src="../../assets/js/lateralMenu.js"></script>
         <script src="../app/tableCategorias.js"></script>
         <script src="../app/script.js"></script>
+        <script src="../../logOut.js"></script>
     </body>
 
     </html>

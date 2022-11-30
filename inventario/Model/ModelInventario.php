@@ -115,26 +115,23 @@ class Inventario extends Conexion
     {
         $showInventarioByAll = null;
         $inventarioArray = null;
-        $statement = $this->db->prepare("SELECT `InvStockFisico`, P.ProStockMinimo as 'stockMinimo', I.InvValorIva as 'iva', I.InvPrecioVenta as 'precioVenta', 
-        P.ProCodigoProducto as 'codigoProducto', P.ProDescripcion as 'nombreProducto', Fk_ProIdProducto 
-        FROM `tblinventario` as I 
-        INNER JOIN tblproductos as P ON P.ProIdProducto=I.Fk_ProIdProducto");
+        $statement = $this->db->prepare("SELECT I.id as 'id', I.invStockFisico as 'stock', I.invPrecioVenta as 'precioVenta', P.proReferencia as 'codigoProducto', P.proNombre as 'nombreProducto', I.fkProducto  as 'idProducto'
+        FROM `tbl_inventario` as I 
+        INNER JOIN tbl_productos as P ON P.Id=I.fkProducto");
         $statement->execute();
         while ($consulta = $statement->fetch()) {
             $showInventarioByAll[] = $consulta;
         }
         if ($showInventarioByAll != null) {
             foreach ($showInventarioByAll as $key => $value) {
-                $idProducto = $value['Fk_ProIdProducto'];
+                $idProducto = $value['idProducto'];
                 $codigoProducto = $value['codigoProducto'];
                 $nombreProducto = $value['nombreProducto'];
-                $ivaProducto = $value['iva'];
                 $precioVenta = $value['precioVenta'];
-                $stockFisico = $value['InvStockFisico'];
-                $stockMinimo = $value['stockMinimo'];
+                $stockFisico = $value['stock'];
                 $arrayProductos[] = [
                     'codigoP' => $codigoProducto, 'nombreP' => $nombreProducto,
-                    'ivaP' => $ivaProducto, 'precioP' => $precioVenta, 'stockFisico' => $stockFisico, 'stockMinimo' => $stockMinimo, 'idProducto' => $idProducto
+                    'precioP' => $precioVenta, 'stockFisico' => $stockFisico, 'idProducto' => $idProducto
                 ];
             }
             $inventarioArray = json_encode($arrayProductos);

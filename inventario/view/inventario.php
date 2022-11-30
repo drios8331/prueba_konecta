@@ -140,6 +140,7 @@
         <script src="../../assets/js/lateralMenu.js"></script>
         <script src="../app/scriptCrud.js"></script>
         <script src="../app/tableInventario.js"></script>
+        <script src="../../logOut.js"></script>
     </body>
 
     </html>

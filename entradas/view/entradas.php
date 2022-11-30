@@ -189,6 +189,7 @@
         <script src="../app/scriptCrud.js"></script>
         <script src="../app/script.js"></script>
         <script src="../app/tableEntradas.js"></script>
+        <script src="../../logOut.js"></script>
     </body>
 
     </html>
