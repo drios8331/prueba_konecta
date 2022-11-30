@@ -55,7 +55,7 @@
                             <img src="../../assets/img/konecta.png" alt="" style="height: 70px; width: 100px;" class="me-5 position-relative rounded-circle">
                         </div>
                     </div>
-                    <div id="menuLateral"></div>
+                    <div class="pt-5" id="menuLateral"></div>
                 </div>
                 <div class="col m-0 px-2">
                     <nav class="navbar navbar-light bg-white rounded px-4 shadow-sm">

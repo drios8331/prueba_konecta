@@ -47,7 +47,7 @@
                             <img src="../../assets/img/konecta.png" alt="" style="height: 70px; width: 100px;" class="me-5 position-relative rounded-circle">
                         </div>
                     </div>
-                    <div id="menuLateral"></div>
+                    <div class="pt-5" id="menuLateral"></div>
                 </div>
                 <div class="col m-0 px-2">
                     <nav class="navbar navbar-light bg-white rounded px-4 shadow-sm">
@@ -65,44 +65,6 @@
                     <!--Content-->
                     <div class="col-12 mt-5 px-2 shadow-sm">
                         <div class="row">
-                            <div class="col-6">
-                                <div class="card">
-                                    <div class="card-header"><i class="bi bi-person-bounding-box text-primary"></i> Usuarios</div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover table-sm" id="tableUsuarios" style="width: 100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Documento</th>
-                                                        <th>Nombre</th>
-                                                        <th class="text-center">Accion</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                    $listaCategorias = $categorias->listarCategorias();
-
-                                                    if ($listaCategorias != null) {
-                                                        foreach ($listaCategorias as $listaCategorias) {
-                                                    ?>
-                                                            <tr>
-                                                                <td><?php echo $listaCategorias['catNombre'] ?></td>
-                                                            </tr>
-                                                    <?php
-                                                        }
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="d-grid">
-                                            <button class="btn btn-outline-primary p-0 m-0" id="btn_insertar_usuario">Insertar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-6">
                                 <div class="card">
                                     <div class="card-header"><i class="bi bi-tags text-primary "></i> Categorias</div>

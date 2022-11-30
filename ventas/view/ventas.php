@@ -32,7 +32,7 @@
 
 <body class="scrolly">
     <div id="respuesta"></div>
-    <!-- <iframe src="" frameborder="0" id="iframeID" hidden></iframe> -->
+    <iframe src="" frameborder="0" id="iframeID" hidden></iframe>
     <div class="container-fluid m-0 p-0 bg-light">
         <div class="row vh-100 m-0 p-0">
             <div class="sidebar col-12 col-sm-12 col-lg-3 col-xl-2 col-md-3 bg-primary p-0 false">
@@ -145,6 +145,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="../../assets/js/hamburgerMain.js"></script>
     <script src="../../assets/js/lateralMenu.js"></script>
+    <script src="../app//script.js"></script>
 </body>
 
 </html>

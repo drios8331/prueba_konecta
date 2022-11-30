@@ -1,27 +1,20 @@
-$(function(){
-    $("#btn_insertar_categoria").on("click", function(e) {
-        if (e.target.id === "btn_insertar_categoria") {
-            $.post(
-                "../controller/ctrlModalInsertarCategoria.php", {},
-                function(response) {
-                    $("#respuesta").html(response);
-                }
-            );
-        }
-    });
+const codigoProducto = document.querySelector("#referenciaProducto");
 
-    $(document).on("click", function(e) {
-        if (e.target.id === "btn_insertar_categoria_ok") {
-            const nombre = $("#categoria").val();
-            $.post(
-                "../controller/ctrlInsertCategoria.php", {
-                    nombre: nombre,
-                },
-                function(responseText) {
-                    $("#respuesta").html(responseText);
-                }
-            );
-        } 
-    });
+// console.log(proveedor);
 
-}); 
+codigoProducto.addEventListener("blur", () => {
+    let codigoP = codigoProducto.value;
+    buscarProducto(codigoP);
+});
+
+function buscarProducto(codigoP) {
+    let nombreProducto = productos.filter((nombre) => nombre.codigo == codigoP);
+    nombreProducto.forEach(productoN => {
+        const productoNombre = document.querySelector("#nombreProducto");
+        const productoUMedida = document.querySelector("#uMedida");
+        const opcion = productoNombre.firstElementChild;
+        opcion.setAttribute("value", productoN.id);
+        opcion.innerHTML = productoN.producto;
+        productoUMedida.setAttribute("value", productoN.uMedida);
+    });
+}
