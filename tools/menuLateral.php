@@ -44,12 +44,12 @@ echo "                             <a href='../../admin/view/dashboard.php' id='
 echo "                                 class='ms-1 mt-0 pt-0 text-center'>Dashboard</span></a>";
 echo "                         </li>";
 echo "                         <li class='list-group-item py-1 pt-2 px-0 m-0'>";
-echo "                             <a href='../../entradas/view/entradas.php' id='entradas' class='btn btn-outline-secondary d-flex text-left border-0 $entradas'><i class='bi bi-arrow-left-circle'></i><span";
-echo "                                 class='ms-1 mt-0 pt-0 text-center'>Entradas</span></a>";
-echo "                         </li>";
-echo "                         <li class='list-group-item py-1 pt-2 px-0 m-0'>";
 echo "                             <a href='../../productos/view/productos.php' id='productos' class='btn btn-outline-secondary d-flex text-left border-0 $productos'><i class='bi bi-arrow-right-circle'></i><span";
 echo "                                 class='ms-1 mt-0 pt-0 text-center'>Productos</span></a>";
+echo "                         </li>";
+echo "                         <li class='list-group-item py-1 pt-2 px-0 m-0'>";
+echo "                             <a href='../../entradas/view/entradas.php' id='entradas' class='btn btn-outline-secondary d-flex text-left border-0 $entradas'><i class='bi bi-arrow-left-circle'></i><span";
+echo "                                 class='ms-1 mt-0 pt-0 text-center'>Entradas</span></a>";
 echo "                         </li>";
 echo "                         <li class='list-group-item py-1 pt-2 px-0 m-0'>";
 echo "                             <a href='../../inventario/view/inventario.php' id='inventario' class='btn btn-outline-secondary d-flex text-left border-0 $inventario'><i class='bi bi-card-checklist'></i><span";
