@@ -1,7 +1,7 @@
 <?php
 require_once '../../conexion.php';
 
-class Categorias extends Conexion
+class Administracion extends Conexion
 {
     public function __construct()
     {
@@ -56,6 +56,18 @@ class Categorias extends Conexion
         } else {
             return false;
         }
+    }
+
+    public function listarUnidadesMedida()
+    {
+        $listarUnidadesMedida = null;
+        $statement = $this->db->prepare("SELECT `id`, `uniMedida` FROM `tbl_unidadesmedida`");
+        $statement->execute();
+        while ($consulta = $statement->fetch()) {
+            $listarUnidadesMedida[] = $consulta;
+        }
+
+        return $listarUnidadesMedida;
     }
 
     // public function updateCategorias($id, $descripcion, $estado)

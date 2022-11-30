@@ -1,9 +1,9 @@
 <?php
 
-    require '../Models/ModelCategorias.php';
+    require '../Model/ModelCategorias.php';
     require '../../tools/Modal.php';
 
-    $categoria = new Categorias();
+    $categoria = new Administracion();
     $modal = new Modal();
 
     $nombre = ucfirst($_POST['nombre']);

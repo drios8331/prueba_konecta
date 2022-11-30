@@ -1,3 +1,14 @@
+    <?php
+    require '../Model/ModelInventario.php';
+    require '../../tools/Modal.php';
+
+    $modal = new Modal();
+    $inventario = new Inventario();
+
+    $listarInventario = $inventario->showInventario();
+    ?>
+
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -27,6 +38,11 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+
+        <script>
+            <?php echo "const productos =" . $productos . ";\n"; ?>
+        </script>
+
         <title>Inventario</title>
     </head>
 
@@ -41,7 +57,7 @@
                             <img src="../../assets/img/konecta.png" alt="" style="height: 70px; width: 100px;" class="me-5 position-relative rounded-circle">
                         </div>
                     </div>
-                    <div id="menuLateral"></div>
+                    <div class="pt-5" id="menuLateral"></div>
                 </div>
                 <div class="col m-0 px-2">
                     <nav class="navbar navbar-light bg-white rounded px-4 shadow-sm">
@@ -51,14 +67,70 @@
                             </button>
                             <!-- Drop -->
                             <div class="div d-flex justify-content-end g-3 align-items-center">
-                                    <a href="#" id="logOut"><i class="bi bi-person-circle bi-lg" style="font-size: 2em; pointer-events: none;"></i></a>
+                                <a href="#" id="logOut"><i class="bi bi-person-circle bi-lg" style="font-size: 2em; pointer-events: none;"></i></a>
                             </div>
                         </div>
                     </nav>
 
                     <!--Content-->
                     <div class="col-12 mt-5 px-2 shadow-sm">
-                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header"><i class="bi bi-card-checklist text-primary"></i> Detalle de inventario</div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover table-sm" id="tableInventario" style="width: 100%;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Referencia producto</th>
+                                                                <th>Producto</th>
+                                                                <th class="text-center">Stock fisico</th>
+                                                                <th class="text-center">Precio</th>
+                                                                <th class="text-center">Unid. medida</th>
+                                                                <th class="text-center">Accion</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <?php
+                                                                if ($listarInventario != null) {
+                                                                    foreach ($listarInventario as $key => $listarInventario) {
+                                                                        $id = $listarInventario['id'];
+                                                                        $codigo = $listarInventario['referencia'];
+                                                                        $nombre = $listarInventario['nombre'];
+                                                                        $stock = $listarInventario['stock'];
+                                                                        $precio = $listarInventario['precio'];
+                                                                        $unidMedida = $listarInventario['uMedida'];
+                                                                        $cantidad = $listarInventario['cantidad'];
+                                                                ?>
+                                                                        <td><?php echo $codigo ?></td>
+                                                                        <td><?php echo $nombre ?></td>
+                                                                        <td class="text-center"><?php echo $stock ?></td>
+                                                                        <td class="text-center"><?php echo $precio ?></td>
+                                                                        <td class="text-center"><?php echo $cantidad . ' ' . $unidMedida ?></td>
+                                                                        <td class="text-center">
+                                                                            <button class="btn btn-outline-primary btn-sm" id="btn_info_inventario" value="<?php echo $id ?>">
+                                                                                <i class="bi bi-info-square" style="pointer-events: none;"></i>
+                                                                            </button>
+                                                                        </td>
+                                                            </tr>
+                                                    <?php
+                                                                    }
+                                                                }
+
+                                                    ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,6 +138,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="../../assets/js/hamburgerMain.js"></script>
         <script src="../../assets/js/lateralMenu.js"></script>
+        <script src="../app/scriptCrud.js"></script>
+        <script src="../app/tableInventario.js"></script>
     </body>
 
     </html>
