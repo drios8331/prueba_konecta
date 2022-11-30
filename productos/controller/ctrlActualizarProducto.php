@@ -7,32 +7,27 @@ $modal = new Modal();
 
 
 $id = $_POST['id'];
-$codigo = $_POST['codigo'];
-$nombre = $_POST['nombre'];
 $categoria = $_POST['categoria'];
 $unidadMedida = $_POST['unidadMedida'];
-$stockMinimo = $_POST['stockMinimo'];
-$marca = $_POST['marca'];
+$nombre = $_POST['nombre'];
+$codigo = $_POST['referencia'];
 $medida = $_POST['medida'];
-$iva = $_POST['iva'];
-$ganancia = $_POST['ganancia'];
+$estado = $_POST['estado'];
 
 $Id = rtrim($id, ' ');
 $Codigo = rtrim($codigo, ' ');
 $Nombre = rtrim($nombre, ' ');
 $Categoria = rtrim($categoria, ' ');
 $UnidadMedida = rtrim($unidadMedida, ' ');
-$StockMinimo = rtrim($stockMinimo, ' ');
-$Marca = rtrim($marca, ' ');
 $Medida = rtrim($medida, ' ');
-$Iva = rtrim($iva, ' ');
-$Ganancia = rtrim($ganancia, ' ');
+$Estado = rtrim($estado, ' ');
 
+// echo "$Id, $Codigo, $Nombre, $Categoria, $UnidadMedida, $Medida, $Estado";
 
 try {
-    if (empty($Codigo) != 1 && empty($Nombre) != 1 && empty($StockMinimo) != 1 && empty($Marca) != 1 && empty($Medida) != 1 && empty($Iva) != 1 && empty($Ganancia) != 1) {
-        if ($StockMinimo > 0 && $Medida > 0 && $Iva > 0 && $Ganancia > 0) {
-            if ($producto->updateProducts($Id, $Categoria, $UnidadMedida, $Codigo, $Nombre, $StockMinimo, $Marca, $Medida, $Iva, $Ganancia)) {
+    if (empty($Codigo) != 1 && empty($Nombre) != 1) {
+        if ($Medida > 0) {
+            if ($producto->modificarProductos($Id, $Categoria, $UnidadMedida, $Codigo, $Nombre, $Medida, $estado)) {
                 $modal->modalAlerta('text-primary', 'Informacion', 'Informacion actualizada de forma exitosa');
             }
         } else {

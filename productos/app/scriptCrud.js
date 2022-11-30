@@ -49,13 +49,15 @@ $(function () {
             // console.log(id);
         } else if (e.target.id === "btn_editar_entrada_ok") {
             const id = $("#idProducto").val();
-            const referencia = $("#idProducto").val();
-            const nombre = $("#nomProducto").val();
-            const categoria = $("#catProducto").val();
-            const unidadMedida = $("#uMProducto").val();
+            const referencia = $("#referenciaProducto").val();
+            const nombre = $("#nombreProducto").val();
+            const categoria = $("#categoriaProducto").val();
+            const unidadMedida = $("#unidMedidaProducto").val();
             const medida = $("#cantMedidaProducto").val();
+            const estado = $("#estadoProducto").val();
+            // console.log(`${id}, ${referencia}, ${nombre}, ${categoria}, ${unidadMedida}, ${medida}, ${estado}`)
             $.post(
-                "../controller/ctrlInsertarProducto.php",
+                "../controller/ctrlActualizarProducto.php",
                 {
                     id: id,
                     referencia: referencia,
@@ -63,6 +65,7 @@ $(function () {
                     categoria: categoria,
                     unidadMedida: unidadMedida,
                     medida: medida,
+                    estado: estado,
                 },
                 function (response) {
                     $("#respuesta").html(response);

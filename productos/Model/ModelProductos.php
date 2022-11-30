@@ -12,7 +12,7 @@ class Productos extends Conexion
     public function buscarProductos()
     {
         $buscarProductos = null;
-        $statement = $this->db->prepare("SELECT `Id`, `fkCategoria`, `fkUnidadMedida`, `proNombre`, `proReferencia`, `proCantidadMedida`, `proEstado`, `proFecha` FROM `tbl_productos` WHERE 1");
+        $statement = $this->db->prepare("SELECT `Id`, `fkCategoria`, `fkUnidadMedida`, `proNombre`, `proReferencia`, `proCantidadMedida`, `proEstado`, `proFecha` FROM `tbl_productos` WHERE proEstado != 0");
         $statement->execute();
         while ($consulta = $statement->fetch()) {
             $buscarProductos[] = $consulta;
@@ -35,17 +35,17 @@ class Productos extends Conexion
                 $codigo = $value['proReferencia'];
                 $producto = $value['proNombre'];
                 $uMedida = $value['fkUnidadMedida'];
-                $arrayProductos[] = ['id'=>$id, 'codigo'=>$codigo, 'producto'=>$producto, 'uMedida'=>$uMedida];
+                $arrayProductos[] = ['id' => $id, 'codigo' => $codigo, 'producto' => $producto, 'uMedida' => $uMedida];
             }
             $arrayListaProductos = json_encode($arrayProductos);
-        }   
+        }
         return $arrayListaProductos;
     }
 
     public function buscarProductosId($id)
     {
         $buscarProductosId = null;
-        $statement = $this->db->prepare("SELECT P.Id as 'Id', P.fkCategoria as 'idCat', P.fkUnidadMedida as 'idUM', P.proReferencia as 'codigo', P.proNombre as 'producto', `proCantidadMedida` as 'medida', C.catNombre as 'categoria', U.uniMedida as 'unidadMedida' FROM `tbl_productos` as P INNER JOIN tbl_categorias as C ON C.id=P.fkCategoria INNER JOIN tbl_unidadesmedida U ON U.id=P.fkUnidadMedida WHERE P.Id = :id");
+        $statement = $this->db->prepare("SELECT P.Id as 'Id', P.fkCategoria as 'idCat', P.fkUnidadMedida as 'idUM', P.proReferencia as 'codigo', P.proNombre as 'producto', `proCantidadMedida` as 'medida', proEstado as 'estado', proFecha as 'fecha', C.catNombre as 'categoria', U.uniMedida as 'unidadMedida' FROM `tbl_productos` as P INNER JOIN tbl_categorias as C ON C.id=P.fkCategoria INNER JOIN tbl_unidadesmedida U ON U.id=P.fkUnidadMedida WHERE P.Id = :id");
         $statement->bindParam(':id', $id);
         $statement->execute();
         while ($consulta = $statement->fetch()) {
@@ -57,7 +57,7 @@ class Productos extends Conexion
     public function buscarProductosCod($codigo)
     {
         $buscarProductosCod = null;
-        $statement = $this->db->prepare("SELECT P.Id as 'Id', P.fkCategoria as 'idCat', P.fkUnidadMedida as 'idUM', P.proReferencia as 'codigo', P.proNombre as 'producto', `proCantidadMedida` as 'medida', C.catNombre as 'categoria', U.uniMedida as 'unidadMedida' FROM `tbl_productos` as P INNER JOIN tbl_categorias as C ON C.id=P.fkCategoria INNER JOIN tbl_unidadesmedida U ON U.id=P.fkUnidadMedida WHERE proReferencia = :codigo");
+        $statement = $this->db->prepare("SELECT P.Id as 'Id', P.fkCategoria as 'idCat', P.fkUnidadMedida as 'idUM', P.proReferencia as 'codigo', P.proNombre as 'producto', `proCantidadMedida` as 'medida', proEstado as 'estado', proFecha as 'fecha', C.catNombre as 'categoria', U.uniMedida as 'unidadMedida' FROM `tbl_productos` as P INNER JOIN tbl_categorias as C ON C.id=P.fkCategoria INNER JOIN tbl_unidadesmedida U ON U.id=P.fkUnidadMedida WHERE proReferencia = :codigo");
         $statement->bindParam(':codigo', $codigo);
         $statement->execute();
         while ($consulta = $statement->fetch()) {
@@ -83,21 +83,16 @@ class Productos extends Conexion
         }
     }
 
-    public function modificarProductos($id, $idCat, $idUM, $codigo, $descripcion, $stockmin, $marca, $medida, $iva, $ganancia)
+    public function modificarProductos($id, $idCat, $idUM, $codigo, $nombre, $medida, $estado)
     {
-        $statement = $this->db->prepare("UPDATE `tblproductos` SET `Fk_CatIdCategoria`=:categoria,`Fk_UniIdUMedida`=:unidMedida,
-        `ProCodigoProducto`=:codigo,`ProDescripcion`=:producto,`ProStockMinimo`=:stockMinimo,`Fk_ProIdMarca`=:marca,`ProCantMedida`=:medida,`ProPorcentajeIva`=:iva, `ProGanancia`=:ganancia
-        WHERE ProIdProducto=:id");
+        $statement = $this->db->prepare("UPDATE `tbl_productos` SET `fkCategoria`=:categoria,`fkUnidadMedida`=:unidMedida,`proNombre`=:producto,`proReferencia`=:referencia,`proCantidadMedida`=:medida,`proEstado`=:estado WHERE Id=:id");
         $statement->bindParam(':id', $id);
         $statement->bindParam(':categoria', $idCat);
         $statement->bindParam(':unidMedida', $idUM);
-        $statement->bindParam(':codigo', $codigo);
-        $statement->bindParam(':producto', $descripcion);
-        $statement->bindParam(':stockMinimo', $stockmin);
-        $statement->bindParam(':marca', $marca);
+        $statement->bindParam(':referencia', $codigo);
+        $statement->bindParam(':producto', $nombre);
         $statement->bindParam(':medida', $medida);
-        $statement->bindParam(':iva', $iva);
-        $statement->bindParam(':ganancia', $ganancia);
+        $statement->bindParam(':estado', $estado);
         if ($statement->execute()) {
             return true;
         } else {
