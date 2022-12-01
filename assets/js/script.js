@@ -7,7 +7,6 @@ const botonView = document.querySelector("#cambiarVista");
 //Eventos
 cargarEventListeners();
 function cargarEventListeners() {
-    // boton.addEventListener('click', prueba);
     botonView.addEventListener("click", changeStatePassword);
     document.addEventListener("DOMContentLoaded", () => {
         const state = document.createElement("i");

@@ -19,7 +19,6 @@ $(function () {
                 $("#respuesta").html(response);
             }
         );
-        // console.log(`${referencia}, ${nombre}, ${categoria}, ${unidadMedida}, ${medida}`)
     });
 
     $(document).on("click", function (e) {
@@ -34,7 +33,6 @@ $(function () {
                     $("#respuesta").html(response);
                 }
             );
-            // console.log(id);
         } else if (e.target.id === "btn_info_producto") {
             const id = e.target.value;
             $.post(
@@ -46,8 +44,7 @@ $(function () {
                     $("#respuesta").html(response);
                 }
             );
-            // console.log(id);
-        } else if (e.target.id === "btn_editar_entrada_ok") {
+        } else if (e.target.id === "btn_editar_producto_ok") {
             const id = $("#idProducto").val();
             const referencia = $("#referenciaProducto").val();
             const nombre = $("#nombreProducto").val();
@@ -55,7 +52,6 @@ $(function () {
             const unidadMedida = $("#unidMedidaProducto").val();
             const medida = $("#cantMedidaProducto").val();
             const estado = $("#estadoProducto").val();
-            // console.log(`${id}, ${referencia}, ${nombre}, ${categoria}, ${unidadMedida}, ${medida}, ${estado}`)
             $.post(
                 "../controller/ctrlActualizarProducto.php",
                 {

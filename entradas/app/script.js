@@ -1,7 +1,5 @@
 const codigoProducto = document.querySelector("#referenciaProducto");
 
-// console.log(proveedor);
-
 codigoProducto.addEventListener("blur", () => {
     let codigoP = codigoProducto.value;
     buscarProducto(codigoP);

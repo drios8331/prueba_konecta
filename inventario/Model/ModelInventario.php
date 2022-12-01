@@ -34,36 +34,12 @@ class Inventario extends Conexion
         return $showInventarioByIdProducto;
     }
 
-    public function updateCantidadInventarioSalida($idProducto, $cantidad)
-    {
-        $statement = $this->db->prepare("UPDATE tbl_inventario SET invStockFisico = :cantidad WHERE fkProducto = :idProducto");
-        $statement->bindParam(':idProducto', $idProducto);
-        $statement->bindParam(':cantidad', $cantidad);
-        if ($statement->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public function updateCantidadInventario($idProducto, $cantidad, $precioBase)
     {
         $statement = $this->db->prepare("UPDATE `tbl_inventario` SET `invStockFisico`=:cantidad,`invPrecioVenta`=:precioBase WHERE fkProducto=:idProducto");
         $statement->bindParam(':idProducto', $idProducto);
         $statement->bindParam(':cantidad', $cantidad);
         $statement->bindParam(':precioBase', $precioBase);
-        if ($statement->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function updateInventarioVentaNull($idProducto, $cantidad)
-    {
-        $statement = $this->db->prepare("UPDATE `tblinventario` SET `InvStockFisico`=:cantidad WHERE `Fk_ProIdProducto`= :idProducto");
-        $statement->bindParam(':idProducto', $idProducto);
-        $statement->bindParam(':cantidad', $cantidad);
         if ($statement->execute()) {
             return true;
         } else {
@@ -85,19 +61,6 @@ class Inventario extends Conexion
         return $showInventario;
     }
 
-    public function showInventarioByStockMinimo()
-    {
-        $showInventarioByStockMinimo = null;
-        $statement = $this->db->prepare("SELECT P.ProCodigoProducto AS 'codigo', P.ProDescripcion AS 'nombre', I.InvStockFisico AS 'stockFisico', P.ProStockMinimo AS 'stockMinimo' 
-        FROM `tblinventario` AS I 
-        INNER JOIN tblproductos as P ON P.ProIdProducto = I.Fk_ProIdProducto 
-        WHERE I.InvStockFisico <= P.ProStockMinimo");
-        $statement->execute();
-        while ($consulta = $statement->fetch()) {
-            $showInventarioByStockMinimo[] = $consulta;
-        }
-        return $showInventarioByStockMinimo;
-    }
 
     public function showInventarioById($id)
     {

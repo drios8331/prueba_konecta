@@ -92,7 +92,7 @@ if ($listarProductos != null) {
     $contenidoModal .= "       <label for='Fecha de Creacion'>Fecha de Creacion</label>";
     $contenidoModal .= "   </div>";
     $contenidoModal .= "   <div class='d-grid mb-3'>";
-    $contenidoModal .= "       <button type='submit' class='btn btn-outline-primary' id='btn_editar_entrada_ok'>Actualizar</button>";
+    $contenidoModal .= "       <button type='submit' class='btn btn-outline-primary' id='btn_editar_producto_ok'>Actualizar</button>";
     $contenidoModal .= "   </div>";
 
 
