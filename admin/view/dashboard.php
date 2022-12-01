@@ -10,12 +10,16 @@
         foreach ($producto as $key => $producto) {
             $productoMax = $producto['nombreproducto'];
         }
+    }else{
+        $productoMax = 0;
     }
 
     if ($productoVenta !=  null) {
         foreach ($productoVenta as $key => $productoVenta) {
             $productoVendido = $productoVenta['nombre'];
         }
+    }else{
+        $productoVendido = 0;
     }
     ?>
 
