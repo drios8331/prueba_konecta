@@ -34,23 +34,6 @@ class Entradas extends Conexion
         }
     }
 
-    public function updateEntrada($id, $idProd, $idProv, $idCompra, $cantidad, $precio)
-    {
-        $statement = $this->db->prepare("UPDATE `tbldetallecompra` SET `Fk_ProIdProducto`=:idProd,`Fk_ProIdProveedor`=:idProv, Fk_ComIdCompras=:idCompra,
-        `EntCantidadDeEntrada`=:cantidad,`EntPrecioCosto`=:precio WHERE `EntIdEntradaDeBodega`=:id");
-        $statement->bindParam(':id', $id);
-        $statement->bindParam(':idProd', $idProd);
-        $statement->bindParam(':idProv', $idProv);
-        $statement->bindParam(':idCompra', $idCompra);
-        $statement->bindParam(':cantidad', $cantidad);
-        $statement->bindParam(':precio', $precio);
-        if ($statement->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public function showEntradasById($idEntrada)
     {
         $showEntradasById = null;

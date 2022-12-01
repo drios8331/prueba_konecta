@@ -22,8 +22,6 @@ $UnidadMedida = rtrim($unidadMedida, ' ');
 $Medida = rtrim($medida, ' ');
 $Estado = rtrim($estado, ' ');
 
-// echo "$Id, $Codigo, $Nombre, $Categoria, $UnidadMedida, $Medida, $Estado";
-
 try {
     if (empty($Codigo) != 1 && empty($Nombre) != 1) {
         if ($Medida > 0) {

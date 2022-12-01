@@ -33,7 +33,6 @@ function menuPersiste() {
         localStorage.setItem("menu", "false");
     } else {
         if (dato === "true") {
-            // console.log(`hay dato ${dato}`);
             menu.classList.add("d-none");
             menu.classList.remove("false");
         }

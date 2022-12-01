@@ -9,7 +9,6 @@ class Conexion
     private $dbname = "cafeteria_konectadb";
     private $user = "root";
     private $password = "";
-    // public $URL = 'http://localhost/proyectos/Proyecto_Sena/';
 
     public function __construct()
     {

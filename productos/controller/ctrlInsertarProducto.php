@@ -24,9 +24,7 @@ $Medida = rtrim($medida, ' ');
 
 
 $listarProductos = $producto->buscarProductosCod($Referencia);
-// echo "$Referencia, $Nombre, $Categoria, $UnidadMedida, $Medida, $fecha, $estado";
 
-// echo "$listarProductos";
 if ($listarProductos != null) {
     foreach ($listarProductos as $key => $listarProductos) {
         $productoTrue = $listarProductos['referencia'];
