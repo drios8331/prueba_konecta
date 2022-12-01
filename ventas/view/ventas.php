@@ -48,8 +48,8 @@ $listarProductos = $inventario->showInventarioByAll();
     <iframe src="" frameborder="0" id="iframeID" hidden></iframe>
     <div class="container-fluid m-0 p-0 bg-light">
         <div class="row vh-100 m-0 p-0">
-            <div class="sidebar col-12 col-sm-12 col-lg-3 col-xl-2 col-md-3 bg-primary p-0 false">
-                <div class="col mt-5 p-0 d-flex justify-content-center align-items-center bg-primary text-white mb-5" style="height: 60px">
+            <div class="sidebar col-12 col-sm-12 col-lg-3 col-xl-2 col-md-3 p-0 false">
+                <div class="col mt-5 p-0 d-flex justify-content-center align-items-center text-white mb-5" style="height: 60px">
                     <div class="bg-white p-2 mt-5 rounded-circle d-flex justify-content-center position-absolute">
                         <img src="../../assets/img/konecta.png" alt="" style="height: 70px; width: 100px;" class="me-5 position-relative rounded-circle">
                     </div>
