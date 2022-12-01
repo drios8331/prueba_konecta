@@ -12,6 +12,7 @@ body.index {
 
 .column_form_login{
     height: 100vh;
+    background: rgb(27,43,83);
 }
 
 .card.login {

@@ -81,7 +81,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="card">
-                                    <div class="card-header">Producto con mas Stock</div>
+                                    <div class="card-header"><i class="bi bi-bar-chart-fill text-primary"></i> Producto con mas Stock</div>
                                     <div class="card-body d-flex justify-content-center">
                                         <h2><?php echo $productoMax ?></h2>
                                     </div>
@@ -93,7 +93,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="card">
-                                    <div class="card-header">Indicador producto mas vendido</div>
+                                    <div class="card-header"><i class="bi bi-bar-chart-fill text-primary"></i> Indicador producto mas vendido</div>
                                     <div class="card-body d-flex justify-content-center">
                                         <h2><?php echo $productoVendido ?></h2>
                                     </div>

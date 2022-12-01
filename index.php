@@ -48,7 +48,7 @@
                     <img class="text-primary" src="assets/img/coffe.jpg" alt="">
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 bg-primary column_form_login">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 column_form_login">
                 <div class="card login p-3 bg-white text-dark mx-5">
                     <div class="card-body text-muted pt-3">
                         <div class="form-row py-2 ">
