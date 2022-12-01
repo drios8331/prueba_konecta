@@ -294,6 +294,7 @@ function efectuaVenta() {
       $("#respuesta").html(respuesta["response"]);
     },
   });
+  limpiarVentas();
 }
 //Importar precios del localStorage a la vista
 function cargarPrecios() {

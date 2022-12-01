@@ -101,4 +101,16 @@ class Inventario extends Conexion
         }
         return $inventarioArray;
     }
+
+    public function updateCantidadInventarioSalida($idProducto, $cantidad)
+    {
+        $statement = $this->db->prepare("UPDATE `tbl_inventario` SET invStockFisico=:cantidad WHERE fkProducto= :idProducto");
+        $statement->bindParam(':idProducto', $idProducto);
+        $statement->bindParam(':cantidad', $cantidad);
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
